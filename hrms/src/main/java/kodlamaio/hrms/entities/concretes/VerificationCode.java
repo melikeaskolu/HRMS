@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 	@Table(name="verification_codes")
 	public class VerificationCode {
 		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		@GeneratedValue
 		@Column(name="id")
 		private int id;
 		

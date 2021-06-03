@@ -6,5 +6,5 @@ import kodlamaio.hrms.entities.concretes.JobTitle;
 public interface JobTitleService {
 	Result add(JobTitle jobTitle);
 	DataResult<List<JobTitle>> getAll();
-	DataResult<JobTitle> getJobByTitle(String title);
+	DataResult<List<JobTitle>> getByJobTitle(String title);
 }

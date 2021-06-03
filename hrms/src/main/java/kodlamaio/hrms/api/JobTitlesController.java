@@ -15,12 +15,12 @@ import kodlamaio.hrms.entities.concretes.JobTitle;
 
 @RestController
 @RequestMapping("/api/jobtitles")
-public class JobTitleController {
+public class JobTitlesController {
 	
 	private JobTitleService jobTitleService;
+	
 	@Autowired
-	public JobTitleController(JobTitleService jobTitleService) {
-		super();
+	public JobTitlesController(JobTitleService jobTitleService) {
 		this.jobTitleService = jobTitleService;
 	}
 	
