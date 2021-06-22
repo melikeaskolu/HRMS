@@ -1,30 +1,27 @@
 package kodlamaio.hrms.api;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import kodlamaio.hrms.business.abstracts.EmployeeService;
+import kodlamaio.hrms.business.abstracts.CityService;
 import kodlamaio.hrms.core.utilities.result.DataResult;
-import kodlamaio.hrms.entities.concretes.Employee;
-
+import kodlamaio.hrms.entities.concretes.City;
 
 @RestController
-@RequestMapping("/api/employees")
-public class EmployeesController {
-	private final EmployeeService employeeService;
+@RequestMapping("/api/cities")
+public class CitiesController {
+	private CityService cityService;
 
 	@Autowired
-	public EmployeesController(EmployeeService employeeService) {
+	public CitiesController(CityService cityService) {
 		super();
-		this.employeeService = employeeService;
+		this.cityService = cityService;
 	}
 	
 	@GetMapping("/getall")
-	public DataResult<List<Employee>> getAll(){
-		return this.employeeService.getAll();
+	public DataResult<List<City>> getAll(){
+		return this.cityService.getAll();
 	}
 
 	

@@ -17,17 +17,20 @@ import lombok.NoArgsConstructor;
 	@AllArgsConstructor
 	@NoArgsConstructor 
 	@PrimaryKeyJoinColumn(name="id", referencedColumnName = "id")
-	@Table(name="employer_users")
+	@Table(name="employers")
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "jobs"})
 	public class Employer extends User{
 		@Column(name="company_name")
-		private String company_name;
+		private String companyName;
 		
-		@Column(name="web_address")
-		private String web_address;
+		@Column(name="web")
+		private String web;
 
 		@Column(name="phone_number")
-		private String phone_number;
+		private String phoneNumber;
+		
+		@Column(name="is_actived")
+		private String isActived;
 		
 
 

@@ -8,9 +8,9 @@ import kodlamaio.hrms.entities.concretes.Candidate;
 public interface CandidateService {
 	DataResult<List<Candidate>> getAll();
 	Result add(Candidate candidate);
-	DataResult<List<Candidate>> findByNationalityIdentity(String nationalityIdentity);
+	DataResult<List<Candidate>> findByIdentityNumber(String identityNumber);
 	DataResult<List<Candidate>> fİndByEmail(String email);
-	DataResult<Boolean> ValidateByPersonalInfo(String nationalityIdentity, String first_name, String last_name, String birth_date);
+	DataResult<Boolean> ValidateByPersonalInfo(String identityNumber, String first_name, String last_name, String birth_date);
 	
 	
 

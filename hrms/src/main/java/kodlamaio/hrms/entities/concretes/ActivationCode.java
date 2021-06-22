@@ -1,9 +1,9 @@
 package kodlamaio.hrms.entities.concretes;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,18 +16,25 @@ import lombok.NoArgsConstructor;
 	@Entity
 	@AllArgsConstructor
 	@NoArgsConstructor 
-	@Table(name="verification_codes")
-	public class VerificationCode {
+	@Table(name="activation_codes")
+	public class ActivationCode {
 		@Id
 		@GeneratedValue
 		@Column(name="id")
 		private int id;
 		
-		@Column(name="code")
+		@Column(name="activation_code")
 		private String code;
 		
-		@Column(name="is_verified")
-		private String is_verified;
+		@Column(name="is_confirmed")
+		private String is_confirmed;
+		
+		@Column(name="confirmed_date")
+		private String confirmed_date;
+		
+		
+		
+		
 
 
 

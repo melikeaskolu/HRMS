@@ -29,16 +29,16 @@ public class CandidateManager implements CandidateService{
 	@Override
 	public Result add(Candidate candidate) {
 		var checkEmail=this.fİndByEmail(candidate.getEmail()).getData().size() !=0;
-		var checkNationalityIdentity=this.findByNationalityIdentity(candidate.getNationalityIdentity()).getData().size() !=0;
-		var checkValidateByPersonal=!this.ValidateByPersonalInfo(candidate.getNationalityIdentity(), candidate.getFirst_name(), 
+		var checkIdentityNumber=this.findByIdentityNumber(candidate.getIdentityNumber()).getData().size() !=0;
+		var checkValidateByPersonal=!this.ValidateByPersonalInfo(candidate.getIdentityNumber(), candidate.getFirst_name(), 
 				candidate.getLast_name(), candidate.getBirth_date()).getData();
 		 var checkFields=!CandidateValidator.allFieldsAreRequired(candidate);
 		 
-		 if(checkEmail||checkNationalityIdentity||checkValidateByPersonal||checkFields) {
+		 if(checkEmail||checkIdentityNumber||checkValidateByPersonal||checkFields) {
 			 
 			 String errorMessage="";
 		 
-		 if(checkEmail||checkNationalityIdentity) {
+		 if(checkEmail||checkIdentityNumber) {
 			 errorMessage+="Email and Tc No already exist";  //Email ve Tc No zaten mevcut
 		 }
 	     if(checkValidateByPersonal) {
@@ -60,8 +60,8 @@ public class CandidateManager implements CandidateService{
 
 	
 	@Override
-	public DataResult<List<Candidate>> findByNationalityIdentity(String nationalityİdentity) {
-		return new SuccessDataResult<List<Candidate>>(this.candidateDao.findByNationalityIdentity(nationalityİdentity));
+	public DataResult<List<Candidate>> findByIdentityNumber(String identityNumber) {
+		return new SuccessDataResult<List<Candidate>>(this.candidateDao.findByIdentityNumber(identityNumber));
 	}
 
 	

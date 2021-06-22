@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor 
 @PrimaryKeyJoinColumn(name="id",referencedColumnName = "id")
-@Table(name="candidate_users")
+@Table(name="candidates")
 public class Candidate extends User {
 	
 	@Column(name = "first_name")
@@ -23,8 +23,8 @@ public class Candidate extends User {
 	@Column(name = "last_name")
 	private String last_name;
 
-	@Column(name = "nationality_identity")
-	private String nationalityIdentity;
+	@Column(name = "identity_number")
+	private String identityNumber;
 
 	@Column(name = "birth_date")
 	private String birth_date;

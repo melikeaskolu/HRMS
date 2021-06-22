@@ -8,7 +8,7 @@ public class CandidateValidator {
 				|| candidate.getPassword().strip().isEmpty()
 				|| candidate.getFirst_name().strip().isEmpty()
 				|| candidate.getLast_name().strip().isEmpty()
-				|| candidate.getNationalityIdentity().strip().isEmpty()
+				|| candidate.getIdentityNumber().strip().isEmpty()
 				|| candidate.getBirth_date().toString().strip().isEmpty()) {
 			return false;
 		}
