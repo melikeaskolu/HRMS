@@ -21,6 +21,27 @@ public class EmployeesController {
 		super();
 		this.employeeService = employeeService;
 	}
+
+//	@PostMapping("/add")
+//	public Result add(@RequestBody Employee employee){
+//		return this.employeeService.add(employee);
+//	}
+//	
+//	@PostMapping("/update")
+//	public Result update(@RequestBody Employee employee){
+//		return this.employeeService.update(employee);
+//	}
+//	
+//	@PostMapping("/delete")
+//	public Result delete(@RequestParam("id") int id){
+//		return this.employeeService.delete(id);
+//	}
+//	
+//	@GetMapping("/getbyid")
+//	public DataResult<Employee> getById(@RequestParam("id") int id){
+//		return this.employeeService.getById(id);
+//	}
+	
 	
 	@GetMapping("/getall")
 	public DataResult<List<Employee>> getAll(){

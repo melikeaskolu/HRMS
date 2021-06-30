@@ -1,8 +1,9 @@
 package kodlamaio.hrms.core.utilities.adapters;
 
+import java.util.Date;
 
 public interface ValidationService {
-	Boolean validationByMernis (String identityNumber, String first_name, String last_name, String birth_date);
 
-	
+	boolean validateByMernis(long identityNumber, String firstName, String lastName, Date birthDate);
+
 }

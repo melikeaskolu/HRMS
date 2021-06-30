@@ -1,9 +1,10 @@
 package kodlamaio.hrms.MernisService;
 
+import java.util.Date;
+
 public class FakeMernisService {
-	public boolean ValidateByPersonalInfo(String identityNumber, String first_name, String last_name, String birth_date)
-	{
-		System.out.println(first_name + " " + last_name + "is valid person.");
+	public boolean ValidateByPersonalInfo(long identityNumber, String firstName, String lastName, Date birthDate) {
+		System.out.println(firstName + " " + lastName + " is valid person.");
 		return true;
 	}
 

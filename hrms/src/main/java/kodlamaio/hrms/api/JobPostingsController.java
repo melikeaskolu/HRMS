@@ -1,9 +1,9 @@
 package kodlamaio.hrms.api;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +17,7 @@ import kodlamaio.hrms.entities.concretes.JobPosting;
 	@RestController
 	@RequestMapping("/api/jobpostins")
 	public class JobPostingsController {
-		private final JobPostingService jobPostingService;
+		private JobPostingService jobPostingService;
 
 		@Autowired
 		public JobPostingsController(JobPostingService jobPostingService) {
@@ -25,41 +25,53 @@ import kodlamaio.hrms.entities.concretes.JobPosting;
 			this.jobPostingService = jobPostingService;
 		}
 		
+		@PostMapping("/add")
+		
+		public Result add(@RequestBody JobPosting jobPosting){
+			return this.jobPostingService.add(jobPosting);
+		}
+	//	
+//		@PostMapping("/update")
+//	public Result add(@RequestBody JobPosting jobPosting){
+	//	return this.jobPostingService.add(jobPosting);
+//		}
+	//	
+//		@PostMapping("/delete")
+//		public Result delete(@RequestParam("id") int id){
+//			return this.jobPostingService.delete(id);
+//		}
+	//
+		
+		@GetMapping("/getById")
+		public DataResult<JobPosting> getById(@RequestParam int id){
+			return this.jobPostingService.getById(id);
+		}
+		
 		@GetMapping("/getall")
 		public DataResult<List<JobPosting>> getAll(){
 			return this.jobPostingService.getAll();
 		}
 		
-		@PostMapping("/add")
-		public Result add(@RequestBody JobPosting jobPosting) {
-			return this.jobPostingService.add(jobPosting);
-			
+		@PostMapping("/changeOpenToClose")
+		public Result changeOpenToClose(@RequestParam int id){
+			return this.jobPostingService.changeOpenToClose(id);
 		}
 		
-		@GetMapping("/findByActiveTrue")
-		public DataResult<List<JobPosting>> findByActiveTrue(){
-			return this.jobPostingService.findByActiveTrue();
-			
-		}
-		@GetMapping("/findByEmployer_IdAndActiveTrue")
-		public DataResult<List<JobPosting>>findByEmployer_IdAndActiveTrue(@RequestParam int employerId){
-			return this.findByEmployer_IdAndActiveTrue( employerId);
-		}
-		@GetMapping("/findByActiveTrueOrderByReleaseDate")
-		public DataResult<List<JobPosting>>findByActiveTrueOrderByReleaseDate(){
-			return this.jobPostingService.findByActiveTrueOrderByReleaseDate();
-		}
-		@GetMapping("/findByIdAndActiveTrue")
-		public DataResult<JobPosting> findByIdAndActiveTrue(@RequestParam int id){
-			return this.findByIdAndActiveTrue(id);
-			
+		@GetMapping("/getAllOpenJobPostingList")
+		public DataResult<List<JobPosting>> getAllOpenJobPostingList(){
+			return this.jobPostingService.getAllOpenJobPostingList();
 		}
 		
-		@PutMapping("/updateActive")
-		public DataResult<JobPosting> updateActive(@RequestParam int id,@RequestParam boolean active){
-			return this.jobPostingService.updateActive(id, active);
+		@GetMapping("/findAllByOrderByReleaseDate")
+		public DataResult<List<JobPosting>> findAllByOrderByReleaseDate(){
+			return this.jobPostingService.findAllByOrderByReleaseDate();
 		}
-
 		
+		@GetMapping("/getAllOpenJobPostingByEmployer")
+		public DataResult<List<JobPosting>> getAllOpenJobPostingByEmployer(@RequestParam int id){
+			return this.jobPostingService.getAllByOpenJobPostingByEmployer(id);
+		}
+	
+	
 
 }

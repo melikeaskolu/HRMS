@@ -7,15 +7,16 @@ import kodlamaio.hrms.core.utilities.result.Result;
 import kodlamaio.hrms.entities.concretes.JobPosting;
 
 public interface JobPostingService {
+	Result add(JobPosting jobPosting);
+	Result update(JobPosting jobPosting);
+	Result delete(int id);
+	Result changeOpenToClose(int id);
+	DataResult<JobPosting> getById(int id);	
 	DataResult<List<JobPosting>>getAll();
-	Result add(JobPosting jobposting);
-	DataResult<List<JobPosting>> findByActiveTrue();
-	DataResult<List<JobPosting>> findByEmployer_IdAndActiveTrue(String companyName);
-	DataResult<List<JobPosting>> findByActiveTrueOrderByReleaseDate();
-	DataResult<JobPosting> findByIdAndActiveTrue(int id);
-	DataResult<JobPosting> updateActive(int id, boolean active);
+	DataResult<List<JobPosting>> getAllOpenJobPostingList();
+	DataResult<List<JobPosting>> findAllByOrderByReleaseDate();
+	DataResult<List<JobPosting>> getAllByOpenJobPostingByEmployer(int id);
 	
-	
-	
+
 
 }
